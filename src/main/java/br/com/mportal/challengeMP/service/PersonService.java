@@ -3,8 +3,12 @@ package br.com.mportal.challengeMP.service;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.stereotype.Service;
 
+import org.apache.commons.math3.util.Precision;
+
+import br.com.mportal.challengeMP.dto.MetricsDto;
 import br.com.mportal.challengeMP.model.Person;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -66,6 +70,35 @@ public class PersonService {
             }
         });
         return persons;
+    }
+
+    public MetricsDto calculateMetrics(List<Person> persons){
+
+        int quantityWomans = 0;
+        int quantityMans = 0;
+        int totalPersons = 0;
+        double ageTotalAverage = 0;
+        double ageWomansAverage = 0;
+        double ageMansAverage = 0;
+
+        for (Person person : persons) {
+            totalPersons++;
+            ageTotalAverage += person.getAge();
+
+            if(person.getGender().equals("Female")){
+                quantityWomans++;
+                ageWomansAverage += person.getAge();
+            }else{
+                quantityMans++;
+                ageMansAverage += person.getAge();
+            }
+        }
+
+        ageTotalAverage = Precision.round(ageTotalAverage / totalPersons, 1);
+        ageWomansAverage = Precision.round(ageWomansAverage / quantityWomans, 1);
+        ageMansAverage = Precision.round(ageMansAverage / quantityMans, 1);
+
+        return new MetricsDto(quantityWomans, quantityMans, ageTotalAverage, ageWomansAverage, ageMansAverage);
     }
     
 }
