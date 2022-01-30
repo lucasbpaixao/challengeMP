@@ -1,12 +1,10 @@
 package br.com.mportal.challengeMP.restController;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +16,6 @@ import br.com.mportal.challengeMP.service.PersonService;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,6 +39,7 @@ public class FileRestController {
 
         List<Person> persons = personService.fixDatesAndCreatePersons(csvParser.getRecords());
         
+        personService.sortByName(persons);
         return persons;
     }
     
