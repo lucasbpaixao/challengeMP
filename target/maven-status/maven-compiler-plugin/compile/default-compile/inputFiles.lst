@@ -1,0 +1,11 @@
+/home/lucasbpaixao/dev/challengeMP/src/main/java/br/com/mportal/challengeMP/repository/UserRepository.java
+/home/lucasbpaixao/dev/challengeMP/src/main/java/br/com/mportal/challengeMP/config/security/AuthenticationService.java
+/home/lucasbpaixao/dev/challengeMP/src/main/java/br/com/mportal/challengeMP/model/Person.java
+/home/lucasbpaixao/dev/challengeMP/src/main/java/br/com/mportal/challengeMP/config/SpringSecurityConfig.java
+/home/lucasbpaixao/dev/challengeMP/src/main/java/br/com/mportal/challengeMP/ChallengeMpApplication.java
+/home/lucasbpaixao/dev/challengeMP/src/main/java/br/com/mportal/challengeMP/model/UserModel.java
+/home/lucasbpaixao/dev/challengeMP/src/main/java/br/com/mportal/challengeMP/dto/MetricsDto.java
+/home/lucasbpaixao/dev/challengeMP/src/main/java/br/com/mportal/challengeMP/service/PersonService.java
+/home/lucasbpaixao/dev/challengeMP/src/main/java/br/com/mportal/challengeMP/controller/IndexController.java
+/home/lucasbpaixao/dev/challengeMP/src/main/java/br/com/mportal/challengeMP/restController/FileRestController.java
+/home/lucasbpaixao/dev/challengeMP/src/main/java/br/com/mportal/challengeMP/repository/PersonRepository.java

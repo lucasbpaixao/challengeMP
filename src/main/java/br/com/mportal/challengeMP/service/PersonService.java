@@ -9,7 +9,6 @@ import br.com.mportal.challengeMP.dto.MetricsDto;
 import br.com.mportal.challengeMP.model.Person;
 
 import java.io.PrintWriter;
-import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
