@@ -8,6 +8,7 @@ import org.apache.commons.math3.util.Precision;
 import br.com.mportal.challengeMP.dto.MetricsDto;
 import br.com.mportal.challengeMP.model.Person;
 
+import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -99,6 +100,13 @@ public class PersonService {
         ageMansAverage = Precision.round(ageMansAverage / quantityMans, 1);
 
         return new MetricsDto(quantityWomans, quantityMans, ageTotalAverage, ageWomansAverage, ageMansAverage);
+    }
+
+    public void writeCsv(PrintWriter printWriter,List<Person> persons){
+        printWriter.write("Nome,UltimoNome,Email,Sexo,IpAcesso,Idade,Nascimento\n");
+        for (Person person : persons) {
+            printWriter.write(person.toString() + "\n");
+        }
     }
     
 }

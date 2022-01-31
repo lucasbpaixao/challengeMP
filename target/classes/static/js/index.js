@@ -1,12 +1,17 @@
-let button = document.getElementById("upload");
+let buttonUpload = document.getElementById("upload");
+let buttonDownload = document.getElementById("download");
 
-button.addEventListener("click", function(){
+console.log(buttonDownload)
+
+buttonUpload.addEventListener("click", uploadFunction)
+
+function uploadFunction(){
     let inputFile = document.getElementById("inputFile");
 	let files = inputFile.files;
     let formData = new FormData();
 	formData.append("csvFile", files[0]);
     let xhr = new XMLHttpRequest();
-	xhr.open("POST", "http://localhost:8080/file/upload", true);
+	xhr.open("POST", window.location.href + "file/upload", true);
 						
 	xhr.onreadystatechange = () => {
 
@@ -21,7 +26,7 @@ button.addEventListener("click", function(){
 	};
 						
 	xhr.send(formData);	
-})
+}
 
 function showMetrics(metrics){
     document.getElementById("quantityWomans").textContent = metrics.quantityWomans

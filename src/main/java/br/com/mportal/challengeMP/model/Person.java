@@ -1,5 +1,6 @@
 package br.com.mportal.challengeMP.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -92,4 +93,12 @@ public class Person {
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
+
+    @Override
+    public String toString() {
+        SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
+        String formatedBirthDate = formater.format(this.birthDate);
+        return this.name + "," + this.lastName + "," + this.email  + "," + this.gender  + "," + this.accessIp  + "," + this.age + "," + formatedBirthDate;
+    }
 }
+
