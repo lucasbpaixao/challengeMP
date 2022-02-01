@@ -7,6 +7,18 @@ O sistema consiste em receber um arquivo por upload e fazer as seguintes tarefas
 - Ordenar a base de dados por nome
 - Disponibilizar um novo CSV para download
 
+<h2 align="center">Execução com Docker Compose</h2>
+
+Para executar a aplicação utilizando o docker compose faça os seguintes passos:
+- No prompt escreva este comando (lembre-se de estar com o prompt na pasta da aplicação)
+```
+docker-compose build && docker-compose up -d
+```
+- Após o termino da execução dos dois comandos, utilize o seguinte comando para verificar se a aplicação já está no ar
+```
+docker-compose logs -f app
+```
+
 <h2 align="center">Execução local</h2>
 
 Para a execução local deve-se configurar as informações do seu banco de dados na aplicação, com isso no arquivo resources/application.properties coloque as seguintes configurações:
