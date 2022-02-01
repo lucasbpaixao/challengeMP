@@ -52,7 +52,7 @@ public class PersonService {
 
             Date birthDate =new SimpleDateFormat("dd/MM/yyyy").parse(dateString); 
 
-            persons.add(new Person(csvRecord.get(0), csvRecord.get(1), csvRecord.get(2), csvRecord.get(3), csvRecord.get(4), Integer.parseInt(csvRecord.get(5)), birthDate));
+            persons.add(new Person(csvRecord.get("Nome"), csvRecord.get("UltimoNome"), csvRecord.get("Email"), csvRecord.get("Sexo"), csvRecord.get("IpAcesso"), Integer.parseInt(csvRecord.get("Idade")), birthDate));
         }
 
         return persons;
@@ -60,13 +60,12 @@ public class PersonService {
 
     public List<Person> sortByName(List<Person> persons){
 
-        Collections.sort(persons ,new Comparator() {
+        Collections.sort(persons ,new Comparator<Person>() {
             @Override
-            public int compare(Object o1, Object o2){
-                Person person1 = (Person)o1;
-                Person person2 = (Person)o2;
-
-                return person1.getName().compareToIgnoreCase(person2.getName());
+            public int compare(Person person1, Person person2) {
+                String fullNamePerson1 = person1.getName() + " " + person1.getLastName();
+                String fullNamePerson2 = person2.getName() + " " + person2.getLastName();
+                return fullNamePerson1.compareToIgnoreCase(fullNamePerson2);
             }
         });
         return persons;

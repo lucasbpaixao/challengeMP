@@ -1,4 +1,4 @@
-package br.com.mportal.challengeMP.config;
+package br.com.mportal.challengeMP.config.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -8,8 +8,6 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import br.com.mportal.challengeMP.config.security.AuthenticationService;
 
 @Configuration
 @EnableWebSecurity
@@ -30,6 +28,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticated()
                 .and()
                 .formLogin()
+                .loginPage("/login")
                 .permitAll();
     }
 
