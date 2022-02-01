@@ -25,6 +25,6 @@ public class AuthenticationService implements UserDetailsService {
             return optional.get();
         }
 
-        throw new UsernameNotFoundException("Dados Invalidos");
+        throw new UsernameNotFoundException("Usuário ou senha incorreto.");
     }
 }

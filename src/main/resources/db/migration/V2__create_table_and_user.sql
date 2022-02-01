@@ -5,4 +5,4 @@ CREATE TABLE user_model(
     CONSTRAINT user_pkey PRIMARY KEY(id)
 );
 
-INSERT INTO user_model(id, login, password) VALUES(1,'user_default', '$2a$10$3eL6KSVlJHkI3TjcWyDTO.idPJFJqwbNZUEX1hrz7lsJxkTkKDDWa');
+INSERT INTO user_model(id, login, password) VALUES(1,'admin', '$2a$10$3eL6KSVlJHkI3TjcWyDTO.idPJFJqwbNZUEX1hrz7lsJxkTkKDDWa');

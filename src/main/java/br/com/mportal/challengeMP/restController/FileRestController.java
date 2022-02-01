@@ -11,8 +11,7 @@ import javax.transaction.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import org.unbescape.csv.CsvEscape;
-
+import br.com.mportal.challengeMP.config.validate.ValidateCsv;
 import br.com.mportal.challengeMP.dto.MetricsDto;
 import br.com.mportal.challengeMP.model.Person;
 import br.com.mportal.challengeMP.repository.PersonRepository;
@@ -20,8 +19,9 @@ import br.com.mportal.challengeMP.service.PersonService;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVPrinter;
+import org.apache.commons.csv.CSVRecord;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,13 +41,16 @@ public class FileRestController {
     
     @PostMapping("/upload")
     @Transactional
-    public ResponseEntity<MetricsDto> uploadFile(@RequestBody MultipartFile csvFile ) throws IOException, ParseException {
-
-        //TODO: mudar lugar de persistencias dos dados e fazer o botão de download do csv
+    public ResponseEntity<MetricsDto> uploadFile(@RequestBody MultipartFile csvFile ) throws IOException, ParseException, NullPointerException {
 
         CSVParser csvParser = CSVFormat.EXCEL.withHeader().parse(new InputStreamReader(csvFile.getInputStream()));
 
-        List<Person> persons = personService.fixDatesAndCreatePersons(csvParser.getRecords());
+        List<CSVRecord> csvRecords = csvParser.getRecords();
+        
+        ValidateCsv.validateContent(csvRecords);
+        ValidateCsv.validateHeader(csvParser.getHeaderNames());
+
+        List<Person> persons = personService.fixDatesAndCreatePersons(csvRecords);
         
         personService.sortByName(persons);
 
@@ -68,7 +71,7 @@ public class FileRestController {
     @Transactional
     public void downloadFile(HttpServletResponse response) throws IOException {
 
-        List<Person> persons = personRepository.findAll();
+        List<Person> persons = personRepository.findAll(Sort.by(Sort.Direction.ASC, "name", "lastName"));
         response.setContentType("text/csv");
         response.setHeader("Content-Disposition", "attachment; file=csv_teste_download.csv");
         

@@ -1,7 +1,5 @@
 let buttonUpload = document.getElementById("upload");
-let buttonDownload = document.getElementById("download");
-
-console.log(buttonDownload)
+let alerts = document.getElementById("alerts");
 
 buttonUpload.addEventListener("click", uploadFunction)
 
@@ -19,8 +17,9 @@ function uploadFunction(){
 
             if (xhr.status == 200) {
                 showMetrics(JSON.parse(xhr.responseText))
+                showAlert("Upload realizado com sucesso!!!","success")
             } else {
-                console.log("Não Foi")
+                showAlert(JSON.parse(xhr.responseText).message, "danger");
             }
         }
 	};
@@ -35,4 +34,11 @@ function showMetrics(metrics){
     document.getElementById("ageMansAverage").innerHTML = '<b>Média de Idade Homens: </b>' + metrics.ageMansAverage
     document.getElementById("ageWomansAverage").innerHTML = '<b>Média de Idade Mulheres: </b>' + metrics.ageWomansAverage
 
+}
+
+function showAlert(message, type){
+    alerts.innerHTML = "";
+    alerts.innerHTML = `<div class="alert alert-${type}" role="alert">
+                            ${message}
+                        </div>`;
 }
