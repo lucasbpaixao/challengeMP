@@ -1,0 +1,15 @@
+br/com/mportal/challengeMP/repository/PersonRepository.class
+br/com/mportal/challengeMP/dto/ErrorDto.class
+br/com/mportal/challengeMP/config/security/AuthenticationService.class
+br/com/mportal/challengeMP/service/PersonService.class
+br/com/mportal/challengeMP/repository/UserRepository.class
+br/com/mportal/challengeMP/dto/MetricsDto.class
+br/com/mportal/challengeMP/config/security/SpringSecurityConfig.class
+br/com/mportal/challengeMP/config/validate/ValidateCsv.class
+br/com/mportal/challengeMP/service/PersonService$1.class
+br/com/mportal/challengeMP/model/UserModel.class
+br/com/mportal/challengeMP/config/validate/ErrorHandle.class
+br/com/mportal/challengeMP/ChallengeMpApplication.class
+br/com/mportal/challengeMP/restController/FileRestController.class
+br/com/mportal/challengeMP/model/Person.class
+br/com/mportal/challengeMP/controller/IndexController.class
