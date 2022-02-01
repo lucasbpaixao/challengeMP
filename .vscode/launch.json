@@ -9,10 +9,10 @@
             "mainClass": "br.com.mportal.challengeMP.ChallengeMpApplication",
             "projectName": "challengeMP",
             "env": {"DB_DIALECT": "org.hibernate.dialect.PostgreSQL94Dialect", 
-                "DB_LINK": "jdbc:postgres://kofqxrusatrocu:718d37893b318f71b029a74f610ab91f123bee8da9fda21b6f1706a8c1e98d20@ec2-35-170-85-206.compute-1.amazonaws.com:5432/d5us90fj955ade", 
+                "DB_LINK": "jdbc:postgresql://localhost:5432/challenge_mp", 
                 "DB_CLASS_NAME": "org.postgresql.Driver", 
-                "DB_USER": "kofqxrusatrocu",
-                "DB_PASSWORD": "718d37893b318f71b029a74f610ab91f123bee8da9fda21b6f1706a8c1e98d20"},
+                "DB_USER": "postgres",
+                "DB_PASSWORD": "123456"},
             "args": ""
         }
     ]

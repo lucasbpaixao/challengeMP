@@ -57,13 +57,22 @@
 
       <div id="alerts" class="mt-5">
       </div>
-      <div class="mt-5">
-        <label for="formFile" class="form-label">Default file input example</label>
-        <input class="form-control" type="file" accept=".csv" id="inputFile">
+      <div class="row">
+        <div class="mt-5 col-sm-5">
+          <label for="formFile" class="form-label">Default file input example</label>
+          <input class="form-control" type="file" accept=".csv" id="inputFile">
+        </div>
+
+        <div class="mt-5 col-sm-5" id="loading">
+        </div>
+
       </div>
 
-      <button type="button" id="upload" class="btn btn-primary mt-3">Fazer Upload</button>
-      <a href="http://localhost:8080/file/download/csv_teste_download.csv" class="btn btn-primary mt-3">Fazer Download</a>
+        <button type="button" id="upload" class="btn btn-primary mt-3">Fazer Upload</button>
+      <a href="${window.location}file/download/csv_teste_download.csv" class="btn btn-primary mt-3">Fazer Download</a>
+      </div>
+
+      
     
   </div>
 

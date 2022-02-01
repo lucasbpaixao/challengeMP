@@ -1,9 +1,11 @@
 let buttonUpload = document.getElementById("upload");
 let alerts = document.getElementById("alerts");
+let loading = document.getElementById("loading");
 
 buttonUpload.addEventListener("click", uploadFunction)
 
 function uploadFunction(){
+    showLoading();
     let inputFile = document.getElementById("inputFile");
 	let files = inputFile.files;
     let formData = new FormData();
@@ -16,9 +18,11 @@ function uploadFunction(){
         if (xhr.readyState == 4) {
 
             if (xhr.status == 200) {
-                showMetrics(JSON.parse(xhr.responseText))
-                showAlert("Upload realizado com sucesso!!!","success")
+                showMetrics(JSON.parse(xhr.responseText));
+                showAlert("Upload realizado com sucesso!!!","success");
+                hiddenLoading();
             } else {
+                hiddenLoading();
                 showAlert(JSON.parse(xhr.responseText).message, "danger");
             }
         }
@@ -42,3 +46,13 @@ function showAlert(message, type){
                             ${message}
                         </div>`;
 }
+
+function showLoading(){
+   loading.innerHTML = ` <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>`
+}
+
+function hiddenLoading(){
+    loading.innerHTML = ""
+ }
