@@ -83,9 +83,9 @@
 				<artifactId>flyway-maven-plugin</artifactId>
 				<version>8.4.3</version>
 				<configuration>
-					<url>${env.DB_LINK_POSTGRES}</url>
-					<user>${env.DB_USER_POSTGRES}</user>
-					<password>${env.DB_PASSWORD_POSTGRES}</password>
+					<url>${env.DB_LINK}</url>
+					<user>${env.DB_USER}</user>
+					<password>${env.DB_PASSWORD}</password>
 				</configuration>
 			</plugin>
 
