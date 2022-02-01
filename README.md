@@ -9,7 +9,7 @@ O sistema consiste em receber um arquivo por upload e fazer as seguintes tarefas
 
 <h2 align="center">Execução local</h2>
 
-Para a execução local deve-se configurar as informações do seu banco de dados então no arquivo resources/application.properties se coloca as seguintes configurações:
+Para a execução local deve-se configurar as informações do seu banco de dados na aplicação, com isso no arquivo resources/application.properties coloque as seguintes configurações:
 ```
 spring.datasource.url=<-url-do-seu-banco->
 spring.datasource.username=<-usuario-postegres->
@@ -18,7 +18,7 @@ spring.datasource.driver-class-name=org.postgresql.Driver
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQL94Dialect
 ```
 
-No pom.xml deve ser configurado no plugin do flyway as seguintes informações:
+No pom.xml deve-se colocar as seguintes configurações no plugin do flyway:
 ```
 <configuration>
     <url><-url-do-seu-banco-></url>
@@ -27,7 +27,7 @@ No pom.xml deve ser configurado no plugin do flyway as seguintes informações:
 </configuration>
 ```
 
-Após configurar o banco de dados, execute no prompt estando na pasta da aplicação o seguinte comando para executar o flyway:
+Após configurar o banco de dados, execute no prompt o seguinte comando para executar o flyway (o prompt deve estar na pasta da aplicação):
 ```
 mvn compile flyway:migrate
 ```
@@ -40,7 +40,7 @@ Após isso só acessar o ```http://localhost:8080/```
 
 <h2 align="center">PostgreSQL no docker</h2>
 <br>
-Caso queira rodar o postgres no docker para utilizar a aplicação faça os seguinte passos:
+Caso queira rodar o postgres no docker, faça os seguinte passos:
 
 - Crie uma pasta no seu computador onde ficará o seu volume. <br>
 - Após criar a pasta coloque o seguinte codigo no prompt de comando:
@@ -51,7 +51,7 @@ docker run --name postgres -e "POSTGRES_PASSWORD=<senha>" -p 5432:5432 -v <-cami
 ```
 docker exec -it postgres  psql -U postgres
 ```
-- Digite este código para criar o banco de dados dentro do postgres:
+- Coloque este código para criar o banco de dados dentro do postgres:
 ```
 CREATE DATABASE challenge_mp;
 ```
