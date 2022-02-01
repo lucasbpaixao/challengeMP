@@ -7,7 +7,7 @@ O sistema consiste em receber um arquivo por upload e fazer as seguintes tarefas
 - Ordenar a base de dados por nome
 - Disponibilizar um novo CSV para download
 
-Lik do Heroku: https://challenge-mp.herokuapp.com/
+Link do Heroku: https://challenge-mp.herokuapp.com/
 
 <h2 align="center">Execução com Docker Compose</h2>
 
