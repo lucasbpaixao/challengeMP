@@ -26,6 +26,7 @@ public class PersonService {
         List<Person> persons = new ArrayList<>();
 
         int currentMonth = LocalDateTime.now().getMonthValue();
+        
         int currentDay = LocalDateTime.now().getDayOfMonth();
 
         for (CSVRecord csvRecord : csvRecords) {
@@ -37,6 +38,7 @@ public class PersonService {
             int birthMonth = Integer.parseInt(dateSplit[1]);
             int birthDay = Integer.parseInt(dateSplit[0]);
 
+            //Se a data de aniversário dele for maior que a data de hoje é feito o calculo utilizando o ano passado
             if(currentMonth < birthMonth){
                 currentYear--;
             }else if(currentMonth == birthMonth){
@@ -46,7 +48,6 @@ public class PersonService {
             }
 
             dateSplit[2] = Integer.toString(currentYear - age);
-
 
             dateString = dateSplit[0] + "/" + dateSplit[1] + "/" + dateSplit[2];
 

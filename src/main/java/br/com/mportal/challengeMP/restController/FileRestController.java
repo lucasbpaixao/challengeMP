@@ -46,7 +46,7 @@ public class FileRestController {
         CSVParser csvParser = CSVFormat.EXCEL.withHeader().parse(new InputStreamReader(csvFile.getInputStream()));
 
         List<CSVRecord> csvRecords = csvParser.getRecords();
-        
+
         ValidateCsv.validateContent(csvRecords);
         ValidateCsv.validateHeader(csvParser.getHeaderNames());
 
@@ -71,6 +71,7 @@ public class FileRestController {
     @Transactional
     public void downloadFile(HttpServletResponse response) throws IOException {
 
+        //Utilizando o sort by para ter certeza de que o dado virá ordenado, porém quando persistido ele já estava ordenado no banco de dados
         List<Person> persons = personRepository.findAll(Sort.by(Sort.Direction.ASC, "name", "lastName"));
         response.setContentType("text/csv");
         response.setHeader("Content-Disposition", "attachment; file=csv_teste_download.csv");
